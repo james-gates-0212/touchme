@@ -1,25 +1,15 @@
 [
   {
     "id": 1,
-    "username": "keytolearn",
-    "password": "key_to_learn",
-    "isActive": false
+    "username": "James Gates",
+    "email": "james.gates.0212@gmail.com",
+    "password": "123456",
+    "isActive": true
   },
   {
     "id": 2,
-    "username": "Bret",
-    "password": "123456",
-    "isActive": false
-  },
-  {
-    "id": 3,
-    "username": "Samantha",
-    "password": "123456",
-    "isActive": false
-  },
-  {
-    "id": 4,
-    "username": "Karianne",
+    "username": "pop.runner88",
+    "email": "pop.runner88@outlook.com",
     "password": "123456",
     "isActive": false
   }
