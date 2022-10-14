@@ -7,7 +7,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import BackupTableIcon from "@mui/icons-material/BackupTable";
 import TouchAppIcon from '@mui/icons-material/TouchApp';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useIsActive } from "../../hooks/ui/isActive";
 
 const TABS = [
