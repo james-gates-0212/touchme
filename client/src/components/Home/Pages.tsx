@@ -1,31 +1,31 @@
-import { Box, Stack } from "@mui/system";
-import { Typography, Button, IconButton } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../constants/routes";
-import { useUserHooks } from "../../state/user/hooks";
+import { Box, Stack } from '@mui/system';
+import { Typography, Button } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
+import { useUserHooks } from '../../state/user/hooks';
 
 const Pages = () => {
   const { logout } = useUserHooks();
   const navigate = useNavigate();
   const PAGES = [
     {
-      title: "Sign In",
-      subtitle: "Sign in with another account",
+      title: 'Sign In',
+      subtitle: 'Sign in with another account',
       onClick: () => {
         navigate(ROUTES.LOG_IN);
       },
     },
     {
-      title: "Sign Up",
-      subtitle: "Register a new account",
+      title: 'Sign Up',
+      subtitle: 'Register a new account',
       onClick: () => {
         navigate(ROUTES.REGISTER);
       },
     },
     {
-      title: "Log out",
-      subtitle: "Logout your current account",
+      title: 'Log out',
+      subtitle: 'Logout your current account',
       onClick: () => {
         logout();
         navigate(ROUTES.LOG_IN);
@@ -47,17 +47,17 @@ const Pages = () => {
                 alignItems="center"
                 justifyContent="center"
                 sx={{
-                  bgcolor: "primary.main",
-                  width: "35px",
-                  height: "35px",
-                  borderRadius: "50%",
+                  bgcolor: 'primary.main',
+                  width: '35px',
+                  height: '35px',
+                  borderRadius: '50%',
                 }}
               >
                 <ArrowForwardIosIcon
                   sx={{
-                    color: "common.white",
-                    width: "20px",
-                    height: "20px",
+                    color: 'common.white',
+                    width: '20px',
+                    height: '20px',
                   }}
                 />
               </Stack>
@@ -65,12 +65,12 @@ const Pages = () => {
             key={page.title}
             variant="text"
             sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              textAlign: "left",
-              mb: "20px",
-              bgcolor: "common.white",
-              p: "20px 24px",
+              display: 'flex',
+              justifyContent: 'space-between',
+              textAlign: 'left',
+              mb: '20px',
+              bgcolor: 'common.white',
+              p: '20px 24px',
             }}
           >
             <Stack>

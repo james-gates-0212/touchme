@@ -1,21 +1,13 @@
-import { useEffect, useState } from "react";
-import {
-  Box,
-  Typography,
-  Input,
-  Stack,
-  CircularProgress,
-  Alert,
-  AlertTitle,
-} from "@mui/material";
-import ManageFriendsCard from "./ManageFriendsCard";
-import { useAppSelector } from "../../store";
-import Center from "../common/Center";
-import { useUsers } from "../../state/users/hooks";
-import SearchInput from "../common/SearchInput";
+import { useEffect, useState } from 'react';
+import { Box, Typography, Stack, CircularProgress, Alert, AlertTitle } from '@mui/material';
+import ManageFriendsCard from './ManageFriendsCard';
+import { useAppSelector } from '../../store';
+import Center from '../common/Center';
+import { useUsers } from '../../state/users/hooks';
+import SearchInput from '../common/SearchInput';
 
 const ManageFriends = () => {
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>('');
   const { getUsersHandler } = useUsers();
   const { list, loading, error } = useAppSelector((state) => state.users);
 
@@ -29,15 +21,11 @@ const ManageFriends = () => {
         Manage Friends
       </Typography>
 
-      <SearchInput
-        value={search}
-        setValue={setSearch}
-        placeholder="Search for friends..."
-      />
+      <SearchInput value={search} setValue={setSearch} placeholder="Search for friends..." />
 
-      <Box sx={{ minHeight: "400px" }}>
+      <Box sx={{ minHeight: '400px' }}>
         {loading ? (
-          <Box sx={{ height: "370px" }}>
+          <Box sx={{ height: '370px' }}>
             <Center>
               <CircularProgress />
             </Center>
