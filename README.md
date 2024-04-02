@@ -25,12 +25,26 @@ The user interface of "Touch Me" is intuitive and user-friendly, making it a bre
 
 So, get ready to dive into the world of "Touch Me" and enjoy the convenience of instant communication. Whether you're connecting with loved ones or collaborating with teammates, "Touch Me" will make sure you're always just a tap away. If you have any questions or need assistance, don't hesitate to reach out. Happy chatting!
 
-## Run Server
+## Prepare for running server
 
 ```bash
 # First, install node modules
 cd server
 pnpm install
+```
+
+## Database Migration
+
+```bash
+# Make all fresh tables
+pnpm seed
+# Drop all tables
+pnpm flush
+```
+
+## Run Server
+
+```bash
 # And run the server as development mode
 pnpm dev
 # or production mode
