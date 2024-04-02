@@ -1,0 +1,27 @@
+{
+  "name": "touchme",
+  "version": "1.0.0",
+  "description": "Real-time messaging app. Available as a web, MacOS, Linux, and Windows application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/james-gates-0212/touchme.git"
+  },
+  "keywords": [
+    "chat",
+    "touch",
+    "me"
+  ],
+  "author": "James Gates",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/james-gates-0212/touchme/issues"
+  },
+  "homepage": "https://github.com/james-gates-0212/touchme#readme",
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
