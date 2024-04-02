@@ -1,7 +1,7 @@
 export enum Env {
-  Prod = "production",
-  Test = "test",
-  Dev = "development",
+  Prod = 'production',
+  Test = 'test',
+  Dev = 'development',
 }
 
 export default class Environment {

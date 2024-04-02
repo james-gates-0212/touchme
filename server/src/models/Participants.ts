@@ -1,15 +1,15 @@
-import { DataTypes, ModelDefined, Optional } from "sequelize";
-import sequelize from "../db";
-import { User } from "../models/User";
-import { Room } from "./Room";
+import { DataTypes, ModelDefined, Optional } from 'sequelize';
+import sequelize from '../db';
+import { User } from '../models/User';
+import { Room } from './Room';
 
 export enum Role {
   // Control any thing
-  Owner = "owner",
+  Owner = 'owner',
   // Add/remove/block members
-  Admin = "admin",
+  Admin = 'admin',
   // Members can send and receive messages
-  Member = "member",
+  Member = 'member',
 }
 
 export interface IParticipants {
@@ -23,8 +23,8 @@ export interface IParticipants {
 
 export const Participants: ModelDefined<
   IParticipants,
-  Optional<IParticipants, "id" | "createdAt" | "updatedAt">
-> = sequelize.define("participants", {
+  Optional<IParticipants, 'id' | 'createdAt' | 'updatedAt'>
+> = sequelize.define('participants', {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -39,17 +39,17 @@ export const Participants: ModelDefined<
 });
 
 User.hasMany(Participants, {
-  foreignKey: "userId",
+  foreignKey: 'userId',
 });
 
 Participants.belongsTo(User, {
-  foreignKey: "userId",
+  foreignKey: 'userId',
 });
 
 Room.hasMany(Participants, {
-  foreignKey: "roomId",
+  foreignKey: 'roomId',
 });
 
 Participants.belongsTo(Room, {
-  foreignKey: "roomId",
+  foreignKey: 'roomId',
 });

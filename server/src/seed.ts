@@ -1,28 +1,27 @@
-import sequelize from "./db";
-import users from "./data/users.json";
-import { User } from "./models/User";
-import { Message } from "./models/Message";
-import { Notification } from "./models/Notification";
-import { Room } from "./models/Room";
-import { Participants } from "./models/Participants";
-import { Friend } from "./models/Friend";
-import "colors";
+import sequelize from './db';
+import users from './data/users.json';
+import { User } from './models/User';
+import { Message } from './models/Message';
+import { Notification } from './models/Notification';
+import { Room } from './models/Room';
+import { Participants } from './models/Participants';
+import { Friend } from './models/Friend';
+import 'colors';
 
 export const seedDB = async () => {
   try {
     await sequelize.sync({ force: false });
     await User.bulkCreate(users);
-    console.log("Database seeded".bgGreen.underline.bold);
+    console.log('Database seeded'.bgGreen.underline.bold);
   } catch (error) {
-    if (error instanceof Error)
-      console.log(`Seed database failed: ${error.message}`.red.underline.bold);
+    if (error instanceof Error) console.log(`Seed database failed: ${error.message}`.red.underline.bold);
 
     console.error(error);
   }
 };
 
 export const flush = async () => {
-  console.log("Delete all database tables".red.underline.bold);
+  console.log('Delete all database tables'.red.underline.bold);
   try {
     await User.drop({ cascade: true });
     await Room.drop({ cascade: true });
@@ -43,8 +42,8 @@ export const flush = async () => {
 };
 
 let arg = process.argv[2];
-if (arg === "seed") {
+if (arg === 'seed') {
   seedDB();
-} else if (arg === "flush") {
+} else if (arg === 'flush') {
   flush();
 }

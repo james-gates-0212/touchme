@@ -1,9 +1,9 @@
-import { DataTypes, ModelDefined, Optional } from "sequelize";
-import sequelize from "../db";
+import { DataTypes, ModelDefined, Optional } from 'sequelize';
+import sequelize from '../db';
 
 export enum RoomType {
-  DM = "DM", // Direct Message
-  Group = "group",
+  DM = 'DM', // Direct Message
+  Group = 'group',
 }
 
 export interface IRoom {
@@ -14,15 +14,15 @@ export interface IRoom {
   updatedAt: string;
 }
 
-export const Room: ModelDefined<
-  IRoom,
-  Optional<IRoom, "id" | "createdAt" | "updatedAt" | "name">
-> = sequelize.define("room", {
-  name: {
-    type: DataTypes.TEXT,
-    allowNull: true,
+export const Room: ModelDefined<IRoom, Optional<IRoom, 'id' | 'createdAt' | 'updatedAt' | 'name'>> = sequelize.define(
+  'room',
+  {
+    name: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    type: {
+      type: DataTypes.ENUM(RoomType.DM, RoomType.Group),
+    },
   },
-  type: {
-    type: DataTypes.ENUM(RoomType.DM, RoomType.Group),
-  },
-});
+);

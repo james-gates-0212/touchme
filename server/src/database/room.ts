@@ -1,7 +1,7 @@
-import { IParticipants, Participants } from "../models/Participants";
-import { IRoom, Room, RoomType } from "../models/Room";
-import { IUser, User } from "../models/User";
-import { parseQuery } from "../utils/prase";
+import { IParticipants, Participants } from '../models/Participants';
+import { IRoom, Room, RoomType } from '../models/Room';
+import { IUser, User } from '../models/User';
+import { parseQuery } from '../utils/prase';
 
 class RoomUOW {
   async deleteById(id: number) {
@@ -15,12 +15,10 @@ class RoomUOW {
       name,
       type,
     });
-    return room.getDataValue("id");
+    return room.getDataValue('id');
   }
 
-  async getById(
-    id: number
-  ): Promise<(IRoom & { participants: IParticipants[] }) | null> {
+  async getById(id: number): Promise<(IRoom & { participants: IParticipants[] }) | null> {
     const room = await Room.findOne({
       where: {
         id,
@@ -30,9 +28,7 @@ class RoomUOW {
       },
     });
 
-    return room
-      ? parseQuery<IRoom & { participants: IParticipants[] }>(room.get())
-      : null;
+    return room ? parseQuery<IRoom & { participants: IParticipants[] }>(room.get()) : null;
   }
 
   async getGroups(userId: number) {
@@ -50,13 +46,13 @@ class RoomUOW {
             {
               model: Participants,
               attributes: {
-                exclude: ["id", "userId", "roomId"],
+                exclude: ['id', 'userId', 'roomId'],
               },
               include: [
                 {
                   model: User,
                   attributes: {
-                    exclude: ["password"],
+                    exclude: ['password'],
                   },
                 },
               ],

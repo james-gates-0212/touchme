@@ -1,4 +1,4 @@
-import { INotification, Notification } from "../models/Notification";
+import { INotification, Notification } from '../models/Notification';
 
 class NotificationUOW {
   async getUserNotifications(userId: number): Promise<INotification[]> {

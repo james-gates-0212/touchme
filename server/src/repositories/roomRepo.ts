@@ -1,14 +1,14 @@
-import AppUOW from ".";
-import messageUOW from "../database/message";
-import participantsUOW from "../database/participant";
-import roomUOW from "../database/room";
-import userUOW from "../database/user";
-import { Event } from "../events";
-import { MessageType } from "../models/Message";
-import { Role } from "../models/Participants";
-import { RoomType } from "../models/Room";
-import { getRoomId } from "../utils/user";
-import BaseRepo from "./baseRepo";
+import AppUOW from '.';
+import messageUOW from '../database/message';
+import participantsUOW from '../database/participant';
+import roomUOW from '../database/room';
+import userUOW from '../database/user';
+import { Event } from '../events';
+import { MessageType } from '../models/Message';
+import { Role } from '../models/Participants';
+import { RoomType } from '../models/Room';
+import { getRoomId } from '../utils/user';
+import BaseRepo from './baseRepo';
 
 type RoomMessage = {
   type: MessageType;
@@ -55,18 +55,12 @@ export default class RoomRepo extends BaseRepo {
     }, Event.LeaveRoom);
   }
 
-  async sendMessage({
-    rooms,
-    message,
-  }: {
-    rooms: Array<number>;
-    message: RoomMessage;
-  }) {
+  async sendMessage({ rooms, message }: { rooms: Array<number>; message: RoomMessage }) {
     const { socket } = this.app;
     await this.errorHandler(async () => {
       const userId = this.app.decodeAuthToken();
       const user = await userUOW.getById(userId);
-      if (!user) throw new Error("User not found");
+      if (!user) throw new Error('User not found');
 
       const messages = await Promise.all(
         rooms.map((room) =>
@@ -75,8 +69,8 @@ export default class RoomRepo extends BaseRepo {
             roomId: room,
             userId,
             read: false,
-          })
-        )
+          }),
+        ),
       );
 
       rooms.forEach(async (room, idx) => {
@@ -100,11 +94,7 @@ export default class RoomRepo extends BaseRepo {
     }, Event.RoomMessage);
   }
 
-  async newRoom(
-    users: Array<{ id: number; role: Role }>,
-    type: RoomType,
-    name?: string
-  ): Promise<number> {
+  async newRoom(users: Array<{ id: number; role: Role }>, type: RoomType, name?: string): Promise<number> {
     const roomId = await roomUOW.newRoom(type, name);
     await participantsUOW.newParticipants(users, roomId);
     return roomId;

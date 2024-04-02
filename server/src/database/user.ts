@@ -1,17 +1,12 @@
-import { Op } from "sequelize";
-import { IUser, User } from "../models/User";
+import { Op } from 'sequelize';
+import { IUser, User } from '../models/User';
 
 export type NewUserParams = {};
 
 class UserUOW {
-  async newUser(data: {
-    username: string;
-    password: string;
-    email: string;
-    isActive?: boolean;
-  }): Promise<number> {
+  async newUser(data: { username: string; password: string; email: string; isActive?: boolean }): Promise<number> {
     const user = await User.create(data);
-    return user.getDataValue("id");
+    return user.getDataValue('id');
   }
 
   async getAll() {
@@ -24,7 +19,7 @@ class UserUOW {
       where: {
         [Op.or]: match,
       },
-      attributes: { exclude: ["password"] },
+      attributes: { exclude: ['password'] },
     });
 
     return users.map((user) => user.get());
@@ -50,7 +45,7 @@ class UserUOW {
         username,
         password,
       },
-      attributes: { exclude: ["password"] },
+      attributes: { exclude: ['password'] },
     });
 
     return user ? user.get() : null;
@@ -65,7 +60,7 @@ class UserUOW {
         where: {
           id,
         },
-      }
+      },
     );
   }
 }

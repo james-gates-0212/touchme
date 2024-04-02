@@ -1,8 +1,8 @@
-import { Event } from "../events";
-import BaseRepo from "./baseRepo";
-import AppUOW from ".";
-import { getUserPrivateRoom } from "../utils/user";
-import userUOW from "../database/user";
+import { Event } from '../events';
+import BaseRepo from './baseRepo';
+import AppUOW from '.';
+import { getUserPrivateRoom } from '../utils/user';
+import userUOW from '../database/user';
 
 export type AddFriendMsg = {
   token: string | null;
@@ -30,7 +30,7 @@ export default class UserRepo extends BaseRepo {
     const socket = this.app.socket;
     this.errorHandler(async () => {
       const token = this.app.getAuthToken();
-      if (token === null) throw new Error("Missing auth token");
+      if (token === null) throw new Error('Missing auth token');
       const userId = this.app.userRepo.decodeAuthToken(token);
       await userUOW.updateUserStatus(userId, true);
       socket.emit(Event.Login, { ok: true });

@@ -1,19 +1,19 @@
-import { DataTypes, ModelDefined, Optional } from "sequelize";
-import sequelize from "../db";
-import { Room } from "./Room";
-import { User } from "./User";
+import { DataTypes, ModelDefined, Optional } from 'sequelize';
+import sequelize from '../db';
+import { Room } from './Room';
+import { User } from './User';
 
 export enum UsersRelation {
-  Friends = "friends",
-  NotFriends = "not-friends",
-  PendingRequest = "pending-request",
-  PendingResponse = "pending-response",
+  Friends = 'friends',
+  NotFriends = 'not-friends',
+  PendingRequest = 'pending-request',
+  PendingResponse = 'pending-response',
 }
 
 export enum FriendshipStatus {
-  Pending = "pending",
-  Friends = "friends",
-  Blocked = "blocked",
+  Pending = 'pending',
+  Friends = 'friends',
+  Blocked = 'blocked',
 }
 
 export interface IFriend {
@@ -28,19 +28,15 @@ export interface IFriend {
 
 export const Friend: ModelDefined<
   IFriend,
-  Optional<IFriend, "id" | "createdAt" | "updatedAt" | "roomId">
-> = sequelize.define("friend", {
+  Optional<IFriend, 'id' | 'createdAt' | 'updatedAt' | 'roomId'>
+> = sequelize.define('friend', {
   status: {
-    type: DataTypes.ENUM(
-      FriendshipStatus.Pending,
-      FriendshipStatus.Blocked,
-      FriendshipStatus.Friends
-    ),
+    type: DataTypes.ENUM(FriendshipStatus.Pending, FriendshipStatus.Blocked, FriendshipStatus.Friends),
     allowNull: false,
   },
 });
 
-const foreignKeys = ["userId", "friendId"];
+const foreignKeys = ['userId', 'friendId'];
 
 foreignKeys.forEach((name) => {
   const options = {

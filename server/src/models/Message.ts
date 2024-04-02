@@ -1,13 +1,13 @@
-import { DataTypes, ModelDefined, Optional } from "sequelize";
-import sequelize from "../db";
-import { Room } from "./Room";
-import { User } from "./User";
+import { DataTypes, ModelDefined, Optional } from 'sequelize';
+import sequelize from '../db';
+import { Room } from './Room';
+import { User } from './User';
 
 export enum MessageType {
-  Text = "text",
-  Audio = "audio",
-  Video = "video",
-  Image = "image",
+  Text = 'text',
+  Audio = 'audio',
+  Video = 'video',
+  Image = 'image',
 }
 
 export interface IMessage {
@@ -19,17 +19,9 @@ export interface IMessage {
   roomId: number;
 }
 
-export const Message: ModelDefined<
-  IMessage,
-  Optional<IMessage, "id" | "read">
-> = sequelize.define("message", {
+export const Message: ModelDefined<IMessage, Optional<IMessage, 'id' | 'read'>> = sequelize.define('message', {
   type: {
-    type: DataTypes.ENUM(
-      MessageType.Text,
-      MessageType.Audio,
-      MessageType.Video,
-      MessageType.Image
-    ),
+    type: DataTypes.ENUM(MessageType.Text, MessageType.Audio, MessageType.Video, MessageType.Image),
     allowNull: false,
   },
   body: {
@@ -47,7 +39,7 @@ export const Message: ModelDefined<
 // Sender associations
 const options = {
   foreignKey: {
-    name: "userId",
+    name: 'userId',
     allowNull: false,
   },
 };
@@ -58,12 +50,12 @@ Message.belongsTo(User, options);
 // Room Associations
 Room.hasMany(Message, {
   foreignKey: {
-    name: "roomId",
+    name: 'roomId',
   },
 });
 
 Message.belongsTo(Room, {
   foreignKey: {
-    name: "roomId",
+    name: 'roomId',
   },
 });

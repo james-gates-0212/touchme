@@ -1,6 +1,6 @@
-import { DataTypes, ModelDefined, Optional } from "sequelize";
-import { Notification } from "./Notification";
-import sequelize from "../db";
+import { DataTypes, ModelDefined, Optional } from 'sequelize';
+import { Notification } from './Notification';
+import sequelize from '../db';
 
 export interface IUser {
   id: number;
@@ -14,8 +14,8 @@ export interface IUser {
 
 export const User: ModelDefined<
   IUser,
-  Optional<IUser, "id" | "isActive" | "createdAt" | "updatedAt">
-> = sequelize.define("user", {
+  Optional<IUser, 'id' | 'isActive' | 'createdAt' | 'updatedAt'>
+> = sequelize.define('user', {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -38,6 +38,6 @@ export const User: ModelDefined<
 
 // One (user) to Many(Notifications) releationship
 User.hasMany(Notification, {
-  foreignKey: "userId",
+  foreignKey: 'userId',
 });
 Notification.belongsTo(User);

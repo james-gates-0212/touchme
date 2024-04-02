@@ -6,8 +6,6 @@ const highlight = require('cli-highlight').highlight;
 
 const config = getConfig();
 
-
-
 const sequelize = new Sequelize(config.database.db, config.database.user, config.database.password, {
   host: config.database.host,
   port: config.database.port,

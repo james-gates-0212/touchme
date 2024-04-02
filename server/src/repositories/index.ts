@@ -1,9 +1,9 @@
-import { Socket } from "socket.io";
-import BaseRepo from "./baseRepo";
-import FriendRepo from "./friendRepo";
-import NotificationRepo from "./notfiRepo";
-import RoomRepo from "./roomRepo";
-import UserRepo from "./userRepo";
+import { Socket } from 'socket.io';
+import BaseRepo from './baseRepo';
+import FriendRepo from './friendRepo';
+import NotificationRepo from './notfiRepo';
+import RoomRepo from './roomRepo';
+import UserRepo from './userRepo';
 
 // UOW stands for Unite of work
 // Represent the app context
@@ -38,7 +38,7 @@ export default class AppUOW {
    * Validate the auth token and return the encoded data (userId)
    */
   public decodeAuthToken(): number {
-    if (this.authToken === null) throw new Error("Missing auth token");
+    if (this.authToken === null) throw new Error('Missing auth token');
     return this.baseRepo.decodeAuthToken(this.authToken);
   }
 }

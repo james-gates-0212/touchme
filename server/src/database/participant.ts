@@ -1,16 +1,13 @@
-import { Participants, Role } from "../models/Participants";
+import { Participants, Role } from '../models/Participants';
 
 class ParticipantsUOW {
-  async newParticipants(
-    users: Array<{ id: number; role: Role }>,
-    roomId: number
-  ) {
+  async newParticipants(users: Array<{ id: number; role: Role }>, roomId: number) {
     await Participants.bulkCreate(
       users.map((user) => ({
         userId: user.id,
         role: user.role,
         roomId,
-      }))
+      })),
     );
   }
 

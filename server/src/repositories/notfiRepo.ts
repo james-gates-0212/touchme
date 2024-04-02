@@ -1,15 +1,11 @@
-import { Op } from "sequelize";
-import {
-  INotification,
-  Notification,
-  NotificationType,
-} from "../models/Notification";
-import AppUOW from ".";
-import { Event } from "../events";
-import BaseRepo from "./baseRepo";
-import "colors";
-import userUOW from "../database/user";
-import notificationUOW from "../database/notification";
+import { Op } from 'sequelize';
+import { INotification, Notification, NotificationType } from '../models/Notification';
+import AppUOW from '.';
+import { Event } from '../events';
+import BaseRepo from './baseRepo';
+import 'colors';
+import userUOW from '../database/user';
+import notificationUOW from '../database/notification';
 
 export default class NotificationRepo extends BaseRepo {
   constructor(app: AppUOW) {
@@ -31,7 +27,7 @@ export default class NotificationRepo extends BaseRepo {
     type: NotificationType;
     userId: number;
   }) {
-    console.error("Not implemented yet".red.underline.bold);
+    console.error('Not implemented yet'.red.underline.bold);
     // await Notification.create({
     //   ...n,
     //   isSeen: false,
@@ -42,7 +38,7 @@ export default class NotificationRepo extends BaseRepo {
   async isFriendshipRequestAlreadySent(sender: number, receiver: number) {
     let notif = await Notification.findOne({
       where: {
-        "content.userId": {
+        'content.userId': {
           [Op.eq]: sender,
         },
         userId: receiver,
@@ -57,7 +53,7 @@ export default class NotificationRepo extends BaseRepo {
     await this.errorHandler(async () => {
       const userId = this.app.decodeAuthToken();
       const user = await userUOW.getById(userId);
-      if (!user) throw new Error("User not foudn");
+      if (!user) throw new Error('User not foudn');
       let notifications = notificationUOW.getUserNotifications(user.id);
 
       socket.emit(Event.Notification, notifications);

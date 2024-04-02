@@ -1,20 +1,20 @@
-import { IMessage, MessageType } from "./models/Message";
-import { IUser } from "./models/User";
+import { IMessage, MessageType } from './models/Message';
+import { IUser } from './models/User';
 
 export enum Event {
-  Connect = "connect",
-  Disconnect = "disconnect",
-  AddFriend = "addFriend",
-  AcceptFriend = "acceptFriend",
-  RemoveFriend = "removeFriend",
-  Notification = "notification",
-  Login = "login",
-  Logout = "logout",
-  GetUser = "getUser",
-  JoinRoom = "joinRoom",
-  LeaveRoom = "leaveRoom",
-  RoomMessage = "sendRoomMsg",
-  UpdateUser = "updateUser",
+  Connect = 'connect',
+  Disconnect = 'disconnect',
+  AddFriend = 'addFriend',
+  AcceptFriend = 'acceptFriend',
+  RemoveFriend = 'removeFriend',
+  Notification = 'notification',
+  Login = 'login',
+  Logout = 'logout',
+  GetUser = 'getUser',
+  JoinRoom = 'joinRoom',
+  LeaveRoom = 'leaveRoom',
+  RoomMessage = 'sendRoomMsg',
+  UpdateUser = 'updateUser',
 }
 
 export type RoomId = number;

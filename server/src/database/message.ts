@@ -1,4 +1,4 @@
-import { IMessage, Message, MessageType } from "../models/Message";
+import { IMessage, Message, MessageType } from '../models/Message';
 
 class MessageUOW {
   async newMessage(msg: {

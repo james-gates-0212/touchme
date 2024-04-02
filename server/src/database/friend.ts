@@ -1,5 +1,5 @@
-import { Op } from "sequelize";
-import { Friend, FriendshipStatus, IFriend } from "../models/Friend";
+import { Op } from 'sequelize';
+import { Friend, FriendshipStatus, IFriend } from '../models/Friend';
 
 class FriendUOW {
   async getFriend(userId: number, friendId: number): Promise<IFriend | null> {
@@ -53,7 +53,7 @@ class FriendUOW {
         where: {
           id,
         },
-      }
+      },
     );
   }
 
@@ -64,7 +64,7 @@ class FriendUOW {
         where: {
           id,
         },
-      }
+      },
     );
   }
 
