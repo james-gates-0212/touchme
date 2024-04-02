@@ -29,6 +29,7 @@ So, get ready to dive into the world of "Touch Me" and enjoy the convenience of 
 
 ```bash
 # First, install node modules
+cd server
 pnpm install
 # And run the server as development mode
 pnpm dev
@@ -40,6 +41,9 @@ pnpm start
 
 ```bash
 # First, install node modules
+cd client
+pnpm install
+# And run the client
 pnpm start
 ```
 

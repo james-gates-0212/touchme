@@ -1,4 +1,5 @@
 .env
 /client/build
 /client/src-tauri/target
+/server/dist
 node_modules
