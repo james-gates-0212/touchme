@@ -1,23 +1,23 @@
-import { io, Socket } from "socket.io-client";
-import { IMessage } from "../state/messages/reducer";
-import { IUser } from "../state/user/reducer";
-import { SendRoomMsg } from "./appSocket";
+import { io, Socket } from 'socket.io-client';
+import { IMessage } from '../state/messages/reducer';
+import { IUser } from '../state/user/reducer';
+import { SendRoomMsg } from './appSocket';
 
 export enum Event {
-  Connect = "connect",
-  Disconnect = "disconnect",
-  AddFriend = "addFriend",
-  AcceptFriend = "acceptFriend",
-  RemoveFriend = "removeFriend",
-  Notification = "notification",
-  Login = "login",
-  Logout = "logout",
-  GetUser = "getUser",
-  JoinRoom = "joinRoom",
-  LeaveRoom = "leaveRoom",
-  RoomMessage = "sendRoomMsg",
-  UpdateUser = "updateUser",
-  CreateGroup = "createGroup",
+  Connect = 'connect',
+  Disconnect = 'disconnect',
+  AddFriend = 'addFriend',
+  AcceptFriend = 'acceptFriend',
+  RemoveFriend = 'removeFriend',
+  Notification = 'notification',
+  Login = 'login',
+  Logout = 'logout',
+  GetUser = 'getUser',
+  JoinRoom = 'joinRoom',
+  LeaveRoom = 'leaveRoom',
+  RoomMessage = 'sendRoomMsg',
+  UpdateUser = 'updateUser',
+  CreateGroup = 'createGroup',
 }
 
 export type OkOrErr = { ok?: boolean; error?: string };
@@ -46,7 +46,7 @@ interface ClientToServerEvents {
 export const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(
   (() => {
     let uri = process.env.REACT_APP_SERVER;
-    if (!uri) throw new Error("Missing server uri");
+    if (!uri) throw new Error('Missing server uri');
     return uri;
-  })()
+  })(),
 );

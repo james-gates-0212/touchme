@@ -1,10 +1,10 @@
-import { Stack, Box, CircularProgress } from "@mui/material";
-import { useAppSelector } from "../../store";
-import Center from "../common/Center";
-import Header from "./Header";
-import MessageBox from "./MessageBox";
-import Messages from "./Messages";
-import SelectChat from "./SelectChat";
+import { Stack, Box, CircularProgress } from '@mui/material';
+import { useAppSelector } from '../../store';
+import Center from '../common/Center';
+import Header from './Header';
+import MessageBox from './MessageBox';
+import Messages from './Messages';
+import SelectChat from './SelectChat';
 
 const ChatBox = () => {
   const messages = useAppSelector((state) => state.messages);
@@ -12,9 +12,9 @@ const ChatBox = () => {
   return (
     <Box
       sx={{
-        bgcolor: "common.white",
+        bgcolor: 'common.white',
         flex: 1,
-        background: "url(/images/chat-bg-pattern-dark.png)",
+        background: 'url(/images/chat-bg-pattern-dark.png)',
       }}
     >
       {messages.currRoom === null ? (
@@ -26,10 +26,10 @@ const ChatBox = () => {
       ) : (
         <Stack
           sx={{
-            maxWidth: "1000px",
-            mx: "auto",
-            px: "24px",
-            height: "100%",
+            maxWidth: '1000px',
+            mx: 'auto',
+            px: '24px',
+            height: '100%',
           }}
         >
           <Header />

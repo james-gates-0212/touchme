@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "../../store";
-import { hideAppModal, showAppModal } from "./actions";
-import { AppModal } from "./reducer";
+import { useAppDispatch, useAppSelector } from '../../store';
+import { hideAppModal, showAppModal } from './actions';
+import { AppModal } from './reducer';
 
 export const useAppModal = () => {
   const dispatch = useAppDispatch();

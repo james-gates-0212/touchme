@@ -1,5 +1,5 @@
-import produce from "immer";
-import { createReducer } from "@reduxjs/toolkit";
+import produce from 'immer';
+import { createReducer } from '@reduxjs/toolkit';
 import {
   addNewMsg,
   getRoomMessagesErr,
@@ -7,15 +7,15 @@ import {
   getRoomMessagesRes,
   resetMessages,
   setCrrRoom,
-} from "./actions";
+} from './actions';
 
 export type RoomId = number;
 
 export enum MessageType {
-  Text = "text",
-  Audio = "audio",
-  Video = "video",
-  Image = "image",
+  Text = 'text',
+  Audio = 'audio',
+  Video = 'video',
+  Image = 'image',
 }
 
 export interface IMessage {
@@ -62,25 +62,25 @@ export const messagesReducer = createReducer<State>(
       .addCase(getRoomMessagesReq, (state, { payload }) =>
         produce(state, (draftState) => {
           draftState.loading[payload] = true;
-        })
+        }),
       )
       .addCase(getRoomMessagesErr, (state, { payload: { roomId, error } }) =>
         produce(state, (draftState) => {
           draftState.loading[roomId] = false;
           draftState.error[roomId] = error;
-        })
+        }),
       )
       .addCase(getRoomMessagesRes, (state, { payload: { roomId, messages } }) =>
         produce(state, (draftState) => {
           draftState.loading[roomId] = false;
           draftState.error[roomId] = null;
           draftState.messages[roomId] = messages;
-        })
+        }),
       )
       .addCase(setCrrRoom, (state, { payload }) =>
         produce(state, (draftState) => {
           draftState.currRoom = payload;
-        })
+        }),
       )
       .addCase(addNewMsg, (state, { payload: msg }) =>
         produce(state, (draftState) => {
@@ -89,8 +89,8 @@ export const messagesReducer = createReducer<State>(
           let isExist = room.some((message) => message.id === msg.id);
           if (isExist) return;
           room.push(msg);
-        })
+        }),
       )
       .addCase(resetMessages, () => produce(initalState, () => {}));
-  }
+  },
 );

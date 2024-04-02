@@ -1,6 +1,6 @@
-import React from "react";
-import LoginForm from "../components/Login/LoginForm";
-import { Stack } from "@mui/material";
+import React from 'react';
+import LoginForm from '../components/Login/LoginForm';
+import { Stack } from '@mui/material';
 
 const LoginPage: React.FC<{}> = () => {
   return (
@@ -8,7 +8,7 @@ const LoginPage: React.FC<{}> = () => {
       alignItems="center"
       justifyContent="center"
       sx={{
-        height: "100%",
+        height: '100%',
       }}
     >
       <LoginForm />

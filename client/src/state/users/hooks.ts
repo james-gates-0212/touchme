@@ -1,7 +1,7 @@
-import { useUserApi } from "../../hooks/api/user";
-import { useAppDispatch } from "../../store";
-import { getErrMsg } from "../../utils/error";
-import { getUsersErr, getUsersReq, getUsersRes } from "./actions";
+import { useUserApi } from '../../hooks/api/user';
+import { useAppDispatch } from '../../store';
+import { getErrMsg } from '../../utils/error';
+import { getUsersErr, getUsersReq, getUsersRes } from './actions';
 
 export const useUsers = () => {
   const dispatch = useAppDispatch();

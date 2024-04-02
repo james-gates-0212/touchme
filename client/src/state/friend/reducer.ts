@@ -1,13 +1,13 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { setFriendErr, setFriendReq, setFriendRes } from "./actions";
-import produce from "immer";
-import { clone } from "../../utils";
+import { createReducer } from '@reduxjs/toolkit';
+import { setFriendErr, setFriendReq, setFriendRes } from './actions';
+import produce from 'immer';
+import { clone } from '../../utils';
 
 export type UserId = number;
 export enum FriendAction {
-  Add = "add",
-  Accept = "accept",
-  Remove = "remove",
+  Add = 'add',
+  Accept = 'accept',
+  Remove = 'remove',
 }
 
 type BaseState = {
@@ -41,18 +41,18 @@ export const friendReducer = createReducer<State>(initalState, (builder) => {
       produce(state, (draftState) => {
         draftState[action].loading[userId] = true;
         draftState[action].error[userId] = null;
-      })
+      }),
     )
     .addCase(setFriendRes, (state, { payload: { action, userId } }) =>
       produce(state, (draftState) => {
         draftState[action].loading[userId] = false;
         draftState[action].error[userId] = null;
-      })
+      }),
     )
     .addCase(setFriendErr, (state, { payload: { action, userId, error } }) =>
       produce(state, (draftState) => {
         draftState[action].loading[userId] = false;
         draftState[action].error[userId] = error;
-      })
+      }),
     );
 });

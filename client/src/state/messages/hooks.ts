@@ -1,17 +1,12 @@
-import { useAppDispatch, useAppSelector } from "../../store";
-import { getErrMsg } from "../../utils/error";
-import {
-  getRoomMessagesErr,
-  getRoomMessagesReq,
-  getRoomMessagesRes,
-  setCrrRoom,
-} from "./actions";
-import { MessageType, RoomId } from "./reducer";
-import { useRoomApi } from "../../hooks/api/room";
-import { useAppSocket } from "../../wss/appSocket";
-import { IFriend } from "../friends/reducer";
-import { IUser } from "../user/reducer";
-import { Role } from "../groups/reducer";
+import { useAppDispatch, useAppSelector } from '../../store';
+import { getErrMsg } from '../../utils/error';
+import { getRoomMessagesErr, getRoomMessagesReq, getRoomMessagesRes, setCrrRoom } from './actions';
+import { MessageType, RoomId } from './reducer';
+import { useRoomApi } from '../../hooks/api/room';
+import { useAppSocket } from '../../wss/appSocket';
+import { IFriend } from '../friends/reducer';
+import { IUser } from '../user/reducer';
+import { Role } from '../groups/reducer';
 
 export interface IRoom {
   id: number;

@@ -1,18 +1,18 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ROUTES } from "./constants/routes";
-import ErrorPage from "./pages/ErrorPage";
-import LoginPage from "./pages/LoginPage";
-import Root from "./components/Layout/Root";
-import { ThemeProvider } from "@mui/material";
-import { theme } from "./theme";
-import HomePage from "./pages/HomePage";
-import Rooms from "./components/Home/Rooms";
-import CreateGroup from "./components/Home/CreateGroup";
-import Pages from "./components/Home/Pages";
-import Friends from "./components/Home/Friends";
-import { Provider } from "react-redux";
-import { store } from "./store";
-import RegisterPage from "./pages/RegisterPage";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ROUTES } from './constants/routes';
+import ErrorPage from './pages/ErrorPage';
+import LoginPage from './pages/LoginPage';
+import Root from './components/Layout/Root';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './theme';
+import HomePage from './pages/HomePage';
+import Rooms from './components/Home/Rooms';
+import CreateGroup from './components/Home/CreateGroup';
+import Pages from './components/Home/Pages';
+import Friends from './components/Home/Friends';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import RegisterPage from './pages/RegisterPage';
 
 const router = createBrowserRouter([
   {

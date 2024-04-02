@@ -1,5 +1,5 @@
-import { clone } from ".";
-import { IFriend } from "../state/friends/reducer";
+import { clone } from '.';
+import { IFriend } from '../state/friends/reducer';
 
 export function groupFriendsByFirstLetter(friends: IFriend[]) {
   let result: { [key: string]: IFriend[] } = {};
@@ -18,13 +18,7 @@ export function groupFriendsByFirstLetter(friends: IFriend[]) {
 /**
  * Generic search function that search using object keys
  */
-export function searchBy<T>(
-  keyword: string,
-  list: Array<T>,
-  keys: Array<keyof T>
-) {
-  let regexp = new RegExp(keyword, "gi");
-  return list.filter((user) =>
-    keys.some((key) => regexp.test(String(user[key])))
-  );
+export function searchBy<T>(keyword: string, list: Array<T>, keys: Array<keyof T>) {
+  let regexp = new RegExp(keyword, 'gi');
+  return list.filter((user) => keys.some((key) => regexp.test(String(user[key]))));
 }

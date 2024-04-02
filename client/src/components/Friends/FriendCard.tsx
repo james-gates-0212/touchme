@@ -1,17 +1,10 @@
-import React from "react";
-import { IFriend } from "../../state/friends/reducer";
-import {
-  Box,
-  Stack,
-  Typography,
-  IconButton,
-  Menu,
-  MenuItem,
-} from "@mui/material";
-import Avatar, { avatarProps } from "../common/Avatar";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import moment from "moment";
-import { useFriend } from "../../state/friend/hooks";
+import React from 'react';
+import { IFriend } from '../../state/friends/reducer';
+import { Box, Stack, Typography, IconButton, Menu, MenuItem } from '@mui/material';
+import Avatar, { avatarProps } from '../common/Avatar';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import moment from 'moment';
+import { useFriend } from '../../state/friend/hooks';
 const FriendCard: React.FC<{ friend: IFriend }> = ({ friend }) => {
   const { removeFriend } = useFriend();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -30,32 +23,27 @@ const FriendCard: React.FC<{ friend: IFriend }> = ({ friend }) => {
       alignItems="center"
       mb="16px"
       sx={{
-        p: "20px 24px",
-        bgcolor: "common.white",
-        borderRadius: "var(--common-br)",
-        ":hover": {
-          bgcolor: "grey.300",
+        p: '20px 24px',
+        bgcolor: 'common.white',
+        borderRadius: 'var(--common-br)',
+        ':hover': {
+          bgcolor: 'grey.300',
         },
       }}
     >
       <Box>
         <Avatar {...avatarProps(friend)} />
       </Box>
-      <Stack sx={{ ml: "12px" }}>
+      <Stack sx={{ ml: '12px' }}>
         <Typography variant="body1" color="grey.900" fontWeight={500}>
           {friend.username}
         </Typography>
         <Typography variant="body2" color="grey.700">
-          {friend.isActive
-            ? friend.email
-            : "Last seen " + moment(friend.updatedAt).fromNow()}
+          {friend.isActive ? friend.email : 'Last seen ' + moment(friend.updatedAt).fromNow()}
         </Typography>
       </Stack>
 
-      <IconButton
-        onClick={handleClick}
-        sx={{ width: "40px", height: "40px", ml: "auto" }}
-      >
+      <IconButton onClick={handleClick} sx={{ width: '40px', height: '40px', ml: 'auto' }}>
         <MoreVertIcon />
       </IconButton>
 
@@ -65,7 +53,7 @@ const FriendCard: React.FC<{ friend: IFriend }> = ({ friend }) => {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          "aria-labelledby": "actions-button",
+          'aria-labelledby': 'actions-button',
         }}
       >
         <MenuItem

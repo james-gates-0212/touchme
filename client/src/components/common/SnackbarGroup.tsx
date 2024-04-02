@@ -1,6 +1,6 @@
-import React from "react";
-import { AlertColor, Box } from "@mui/material";
-import Snackbar from "./Snackbar";
+import React from 'react';
+import { AlertColor, Box } from '@mui/material';
+import Snackbar from './Snackbar';
 
 const SnackbarGroup: React.FC<{
   list: Array<{

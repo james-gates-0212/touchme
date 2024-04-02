@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { useGroupApi } from "../../hooks/api/group";
-import { useAppDispatch, useAppSelector } from "../../store";
-import { getErrMsg } from "../../utils/error";
-import { useAppSocket } from "../../wss/appSocket";
-import { UserId } from "../friend/reducer";
-import { useRoom } from "../messages/hooks";
+import { useEffect } from 'react';
+import { useGroupApi } from '../../hooks/api/group';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { getErrMsg } from '../../utils/error';
+import { useAppSocket } from '../../wss/appSocket';
+import { UserId } from '../friend/reducer';
+import { useRoom } from '../messages/hooks';
 import {
   creageGroupRest,
   createGroupsErr,
@@ -16,8 +16,8 @@ import {
   groupActionErr,
   groupActionReq,
   groupActionRes,
-} from "./actions";
-import { GropuId, GroupAction } from "./reducer";
+} from './actions';
+import { GropuId, GroupAction } from './reducer';
 
 export const useGroups = () => {
   const groupApi = useGroupApi();

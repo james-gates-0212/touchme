@@ -1,4 +1,4 @@
-import { IMessage, MessageType, RoomId } from "../state/messages/reducer";
+import { IMessage, MessageType, RoomId } from '../state/messages/reducer';
 
 export type GroupedMessage = {
   roomId: RoomId;
@@ -22,9 +22,7 @@ export function groupUserMessages(messages: IMessage[]): GroupedMessage[] {
   const asGrouped: (msg: IMessage) => GroupedMessage = (msg) => ({
     roomId: msg.roomId,
     user: msg.user,
-    content: [
-      { id: msg.id, type: msg.type, body: msg.body, createdAt: msg.createdAt },
-    ],
+    content: [{ id: msg.id, type: msg.type, body: msg.body, createdAt: msg.createdAt }],
     createdAt: msg.createdAt,
     updatedAt: msg.updatedAt,
   });

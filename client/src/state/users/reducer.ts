@@ -1,13 +1,13 @@
-import { createReducer } from "@reduxjs/toolkit";
-import produce from "immer";
-import { getUsersErr, getUsersReq, getUsersRes } from "./actions";
-import { IUser } from "../user/reducer";
+import { createReducer } from '@reduxjs/toolkit';
+import produce from 'immer';
+import { getUsersErr, getUsersReq, getUsersRes } from './actions';
+import { IUser } from '../user/reducer';
 
 export enum UsersRelation {
-  Friends = "friends",
-  NotFriends = "not-friends",
-  PendingRequest = "pending-request",
-  PendingResponse = "pending-response",
+  Friends = 'friends',
+  NotFriends = 'not-friends',
+  PendingRequest = 'pending-request',
+  PendingResponse = 'pending-response',
 }
 
 export type UserWithRelation = IUser & { relation: UsersRelation };
@@ -30,20 +30,20 @@ export const usersReducer = createReducer<State>(
         produce(state, (draftState) => {
           draftState.loading = true;
           draftState.error = null;
-        })
+        }),
       )
       .addCase(getUsersRes, (state, { payload }) =>
         produce(state, (draftState) => {
           draftState.loading = false;
           draftState.error = null;
           draftState.list = payload;
-        })
+        }),
       )
       .addCase(getUsersErr, (state, { payload }) =>
         produce(state, (draftState) => {
           draftState.error = payload;
           draftState.loading = false;
-        })
+        }),
       );
-  }
+  },
 );

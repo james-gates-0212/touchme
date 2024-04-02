@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store";
-import { getErrMsg } from "../../utils/error";
-import { getFriendsErr, getFriendsReq, getFriendsRes } from "./actions";
-import { useAppSocket } from "../../wss/appSocket";
-import { useUserApi } from "../../hooks/api/user";
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { getErrMsg } from '../../utils/error';
+import { getFriendsErr, getFriendsReq, getFriendsRes } from './actions';
+import { useAppSocket } from '../../wss/appSocket';
+import { useUserApi } from '../../hooks/api/user';
 
 export const useFriends = () => {
   const dispatch = useAppDispatch();

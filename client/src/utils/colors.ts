@@ -6,7 +6,7 @@ function stringToColor(string: string) {
     hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
 
-  let color = "#";
+  let color = '#';
 
   for (i = 0; i < 3; i += 1) {
     const value = (hash >> (i * 8)) & 0xff;
@@ -16,11 +16,11 @@ function stringToColor(string: string) {
   return color;
 }
 
-export function getAvatarLetters(name: string = ""): string {
+export function getAvatarLetters(name: string = ''): string {
   return name
-    .split(" ")
+    .split(' ')
     .map((part) => part[0])
-    .join("")
+    .join('')
     .slice(0, 2)
     .toUpperCase();
 }

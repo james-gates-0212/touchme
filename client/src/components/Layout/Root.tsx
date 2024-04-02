@@ -1,12 +1,12 @@
-import { Outlet } from "react-router-dom";
-import { Box } from "@mui/system";
+import { Outlet } from 'react-router-dom';
+import { Box } from '@mui/system';
 
 const Root = () => {
   return (
     <Box
       sx={{
-        height: "100vh",
-        backgroundColor: "rgba(var(--bs-light-rgb), 1)",
+        height: '100vh',
+        backgroundColor: 'rgba(var(--bs-light-rgb), 1)',
       }}
     >
       <Outlet />

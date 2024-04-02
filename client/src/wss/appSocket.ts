@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { Event, socket } from ".";
-import { useFriend } from "../state/friend/hooks";
-import { updateUser } from "../state/friends/actions";
-import { addNewMsg } from "../state/messages/actions";
-import { MessageType, RoomId } from "../state/messages/reducer";
-import { useAppDispatch, useAppSelector } from "../store";
-import { logGroup } from "../utils/log";
+import { useEffect } from 'react';
+import { Event, socket } from '.';
+import { useFriend } from '../state/friend/hooks';
+import { updateUser } from '../state/friends/actions';
+import { addNewMsg } from '../state/messages/actions';
+import { MessageType, RoomId } from '../state/messages/reducer';
+import { useAppDispatch, useAppSelector } from '../store';
+import { logGroup } from '../utils/log';
 
 export type SendRoomMsg = {
   rooms: RoomId[];
@@ -18,8 +18,7 @@ export type SendRoomMsg = {
 export const useServerEvents = () => {
   const authToken = useAppSelector((state) => state.user.authToken);
   const { login } = useAppSocket();
-  const { handleAddFreindRes, handleAcceptFriendRes, handleRemoveFriendRes } =
-    useFriend();
+  const { handleAddFreindRes, handleAcceptFriendRes, handleRemoveFriendRes } = useFriend();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export const useServerEvents = () => {
 
     socket.on(Event.RoomMessage, async (res) => {
       logGroup(Event.RoomMessage, res);
-      if ("error" in res) {
+      if ('error' in res) {
         console.error({ e: Event.RoomMessage, res });
       } else {
         dispatch(addNewMsg(res));

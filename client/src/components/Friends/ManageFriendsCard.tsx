@@ -1,11 +1,11 @@
-import React from "react";
-import { Stack, Typography, Button } from "@mui/material";
-import LoadingButton from "@mui/lab/LoadingButton";
-import moment from "moment";
-import { useFriend } from "../../state/friend/hooks";
-import Avatar, { avatarProps } from "../common/Avatar";
-import { UsersRelation, UserWithRelation } from "../../state/users/reducer";
-import { useAppSelector } from "../../store";
+import React from 'react';
+import { Stack, Typography, Button } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import moment from 'moment';
+import { useFriend } from '../../state/friend/hooks';
+import Avatar, { avatarProps } from '../common/Avatar';
+import { UsersRelation, UserWithRelation } from '../../state/users/reducer';
+import { useAppSelector } from '../../store';
 
 const ManageFriendsCard: React.FC<{
   user: UserWithRelation;
@@ -19,7 +19,7 @@ const ManageFriendsCard: React.FC<{
           {username}
         </Typography>
         <Typography variant="caption" color="grey.500">
-          {isActive ? email : "Last seen " + moment(updatedAt).fromNow()}
+          {isActive ? email : 'Last seen ' + moment(updatedAt).fromNow()}
         </Typography>
       </Stack>
       <CardAction relation={relation} id={id} />
@@ -29,10 +29,7 @@ const ManageFriendsCard: React.FC<{
 
 export default ManageFriendsCard;
 
-const CardAction: React.FC<{ relation: UsersRelation; id: number }> = ({
-  relation,
-  id,
-}) => {
+const CardAction: React.FC<{ relation: UsersRelation; id: number }> = ({ relation, id }) => {
   const friendState = useAppSelector((state) => state.friend);
   const { addFriend, acceptFriend, removeFriend } = useFriend();
 

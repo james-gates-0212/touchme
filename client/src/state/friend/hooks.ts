@@ -1,10 +1,10 @@
-import { useAppDispatch } from "../../store";
-import { FriendEventRes } from "../../wss";
-import { useAppSocket } from "../../wss/appSocket";
-import { resetMessages } from "../messages/actions";
-import { useUsers } from "../users/hooks";
-import { setFriendErr, setFriendReq, setFriendRes } from "./actions";
-import { FriendAction } from "./reducer";
+import { useAppDispatch } from '../../store';
+import { FriendEventRes } from '../../wss';
+import { useAppSocket } from '../../wss/appSocket';
+import { resetMessages } from '../messages/actions';
+import { useUsers } from '../users/hooks';
+import { setFriendErr, setFriendReq, setFriendRes } from './actions';
+import { FriendAction } from './reducer';
 
 export const useFriend = () => {
   const dispatch = useAppDispatch();
@@ -23,13 +23,11 @@ export const useFriend = () => {
           action: FriendAction.Add,
           userId: res.friendId,
           error: res.error,
-        })
+        }),
       );
     } else {
       await refreshState();
-      dispatch(
-        setFriendRes({ action: FriendAction.Add, userId: res.friendId })
-      );
+      dispatch(setFriendRes({ action: FriendAction.Add, userId: res.friendId }));
     }
   }
 
@@ -45,13 +43,11 @@ export const useFriend = () => {
           action: FriendAction.Accept,
           userId: res.friendId,
           error: res.error,
-        })
+        }),
       );
     } else {
       await refreshState();
-      dispatch(
-        setFriendRes({ action: FriendAction.Accept, userId: res.friendId })
-      );
+      dispatch(setFriendRes({ action: FriendAction.Accept, userId: res.friendId }));
     }
   }
 
@@ -67,13 +63,11 @@ export const useFriend = () => {
           action: FriendAction.Remove,
           userId: res.friendId,
           error: res.error,
-        })
+        }),
       );
     } else {
       await refreshState();
-      dispatch(
-        setFriendRes({ action: FriendAction.Remove, userId: res.friendId })
-      );
+      dispatch(setFriendRes({ action: FriendAction.Remove, userId: res.friendId }));
     }
   }
 

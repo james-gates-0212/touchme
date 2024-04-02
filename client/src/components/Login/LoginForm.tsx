@@ -1,18 +1,11 @@
-import React, { useState } from "react";
-import {
-  Typography,
-  TextField,
-  Button,
-  Stack,
-  CircularProgress,
-  IconButton,
-} from "@mui/material";
-import Link from "../common/Link";
-import { ROUTES } from "../../constants/routes";
-import { useUserHooks } from "../../state/user/hooks";
-import { useAppSelector } from "../../store";
-import OpenedEye from "@mui/icons-material/RemoveRedEye";
-import ClosedEye from "@mui/icons-material/VisibilityOff";
+import React, { useState } from 'react';
+import { Typography, TextField, Button, Stack, CircularProgress, IconButton } from '@mui/material';
+import Link from '../common/Link';
+import { ROUTES } from '../../constants/routes';
+import { useUserHooks } from '../../state/user/hooks';
+import { useAppSelector } from '../../store';
+import OpenedEye from '@mui/icons-material/RemoveRedEye';
+import ClosedEye from '@mui/icons-material/VisibilityOff';
 
 const LoginForm = () => {
   const { login } = useUserHooks();
@@ -22,22 +15,22 @@ const LoginForm = () => {
     email: string;
     password: string;
   }>({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   type FormField = keyof typeof state;
 
   const formFields = [
     {
-      label: "Email",
-      name: "email",
-      type: "text",
+      label: 'Email',
+      name: 'email',
+      type: 'text',
     },
     {
-      label: "Password",
-      name: "password",
-      type: showPass ? "text" : "password",
+      label: 'Password',
+      name: 'password',
+      type: showPass ? 'text' : 'password',
     },
   ];
 
@@ -59,11 +52,11 @@ const LoginForm = () => {
       <Stack
         direction="column"
         sx={{
-          bgcolor: "common.white",
+          bgcolor: 'common.white',
           boxShadow: 2,
-          borderRadius: "0.6rem",
-          padding: "1.5rem 1.5rem 2.3rem 1.5rem",
-          minWidth: "350px",
+          borderRadius: '0.6rem',
+          padding: '1.5rem 1.5rem 2.3rem 1.5rem',
+          minWidth: '350px',
         }}
       >
         <Typography variant="h6">Sign In</Typography>
@@ -77,13 +70,13 @@ const LoginForm = () => {
               <TextField
                 label={field.label}
                 key={field.label}
-                sx={{ mb: "20px" }}
+                sx={{ mb: '20px' }}
                 name={field.name}
                 onChange={updateState}
                 type={field.type}
                 InputProps={{
                   endAdornment:
-                    field.name !== "password" ? undefined : (
+                    field.name !== 'password' ? undefined : (
                       <IconButton onClick={() => setShowPass(!showPass)}>
                         {showPass ? <OpenedEye /> : <ClosedEye />}
                       </IconButton>
@@ -92,29 +85,17 @@ const LoginForm = () => {
               />
             ))}
             <Button
-              startIcon={
-                loading && (
-                  <CircularProgress
-                    color="primary"
-                    size="20px"
-                    sx={{ ml: "-20px" }}
-                  />
-                )
-              }
+              startIcon={loading && <CircularProgress color="primary" size="20px" sx={{ ml: '-20px' }} />}
               type="submit"
               variant="contained"
               color="primary"
               size="large"
-              sx={{ mb: "4px" }}
+              sx={{ mb: '4px' }}
               disabled={!state.email || !state.password || loading}
             >
               Sign In
             </Button>
-            <Typography
-              sx={{ height: "20px", mb: "-20px" }}
-              variant="caption"
-              color="error"
-            >
+            <Typography sx={{ height: '20px', mb: '-20px' }} variant="caption" color="error">
               {error}
             </Typography>
           </Stack>

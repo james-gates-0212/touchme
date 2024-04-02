@@ -1,14 +1,14 @@
-import React from "react";
-import { Box, Modal as MuiModal } from "@mui/material";
-import { useAppModal } from "../../state/app/hooks";
+import React from 'react';
+import { Box, Modal as MuiModal } from '@mui/material';
+import { useAppModal } from '../../state/app/hooks';
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: "background.paper",
+  bgcolor: 'background.paper',
   boxShadow: 24,
   p: 4,
 };
@@ -22,12 +22,7 @@ const Modal: React.FC<{
 
   return (
     <Box>
-      <MuiModal
-        open={open}
-        onClose={onClose ? onClose : modal.hide}
-        disableEnforceFocus
-        disableAutoFocus
-      >
+      <MuiModal open={open} onClose={onClose ? onClose : modal.hide} disableEnforceFocus disableAutoFocus>
         <Box sx={style}>{children}</Box>
       </MuiModal>
     </Box>

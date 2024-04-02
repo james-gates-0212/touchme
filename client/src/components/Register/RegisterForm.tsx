@@ -1,18 +1,11 @@
-import React, { useState } from "react";
-import {
-  Typography,
-  TextField,
-  Button,
-  Stack,
-  IconButton,
-  CircularProgress,
-} from "@mui/material";
-import { ROUTES } from "../../constants/routes";
-import Link from "../common/Link";
-import { useUserHooks } from "../../state/user/hooks";
-import { useAppSelector } from "../../store";
-import OpenedEye from "@mui/icons-material/RemoveRedEye";
-import ClosedEye from "@mui/icons-material/VisibilityOff";
+import React, { useState } from 'react';
+import { Typography, TextField, Button, Stack, IconButton, CircularProgress } from '@mui/material';
+import { ROUTES } from '../../constants/routes';
+import Link from '../common/Link';
+import { useUserHooks } from '../../state/user/hooks';
+import { useAppSelector } from '../../store';
+import OpenedEye from '@mui/icons-material/RemoveRedEye';
+import ClosedEye from '@mui/icons-material/VisibilityOff';
 
 const RegisterForm = () => {
   const { register } = useUserHooks();
@@ -23,28 +16,28 @@ const RegisterForm = () => {
     email: string;
     password: string;
   }>({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: '',
   });
 
   type FormField = keyof typeof state;
 
   const formFields = [
     {
-      label: "Name",
-      type: "text",
-      name: "username",
+      label: 'Name',
+      type: 'text',
+      name: 'username',
     },
     {
-      label: "Email",
-      type: "text",
-      name: "email",
+      label: 'Email',
+      type: 'text',
+      name: 'email',
     },
     {
-      label: "Password",
-      type: showPass ? "text" : "password",
-      name: "password",
+      label: 'Password',
+      type: showPass ? 'text' : 'password',
+      name: 'password',
     },
   ];
 
@@ -67,11 +60,11 @@ const RegisterForm = () => {
       <Stack
         direction="column"
         sx={{
-          bgcolor: "common.white",
+          bgcolor: 'common.white',
           boxShadow: 2,
-          borderRadius: "0.6rem",
-          padding: "1.5rem 1.5rem",
-          minWidth: "350px",
+          borderRadius: '0.6rem',
+          padding: '1.5rem 1.5rem',
+          minWidth: '350px',
         }}
       >
         <Typography variant="h6">Register</Typography>
@@ -85,13 +78,13 @@ const RegisterForm = () => {
               <TextField
                 label={field.label}
                 key={field.label}
-                sx={{ mb: "20px" }}
+                sx={{ mb: '20px' }}
                 type={field.type}
                 name={field.name}
                 onChange={updateState}
                 InputProps={{
                   endAdornment:
-                    field.name !== "password" ? undefined : (
+                    field.name !== 'password' ? undefined : (
                       <IconButton onClick={() => setShowPass(!showPass)}>
                         {showPass ? <OpenedEye /> : <ClosedEye />}
                       </IconButton>
@@ -105,25 +98,13 @@ const RegisterForm = () => {
               color="primary"
               size="large"
               type="submit"
-              sx={{ mb: "4px" }}
+              sx={{ mb: '4px' }}
               disabled={!isValidState() || loading}
-              startIcon={
-                loading && (
-                  <CircularProgress
-                    color="primary"
-                    size="20px"
-                    sx={{ ml: "-20px" }}
-                  />
-                )
-              }
+              startIcon={loading && <CircularProgress color="primary" size="20px" sx={{ ml: '-20px' }} />}
             >
               Register
             </Button>
-            <Typography
-              sx={{ height: "20px", mb: "-20px" }}
-              variant="caption"
-              color="error"
-            >
+            <Typography sx={{ height: '20px', mb: '-20px' }} variant="caption" color="error">
               {error}
             </Typography>
           </Stack>

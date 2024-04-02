@@ -1,5 +1,5 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { hideAppModal, showAppModal } from "./actions";
+import { createReducer } from '@reduxjs/toolkit';
+import { hideAppModal, showAppModal } from './actions';
 
 export enum AppModal {
   AddFriend,
@@ -23,5 +23,5 @@ export const appReducer = createReducer<App>(
         ...state,
         modal: null,
       }));
-  }
+  },
 );

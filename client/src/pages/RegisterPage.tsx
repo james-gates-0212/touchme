@@ -1,6 +1,6 @@
-import React from "react";
-import { Stack } from "@mui/material";
-import RegisterForm from "../components/Register/RegisterForm";
+import React from 'react';
+import { Stack } from '@mui/material';
+import RegisterForm from '../components/Register/RegisterForm';
 
 const RegisterPage: React.FC<{}> = () => {
   return (
@@ -8,7 +8,7 @@ const RegisterPage: React.FC<{}> = () => {
       alignItems="center"
       justifyContent="center"
       sx={{
-        height: "100%",
+        height: '100%',
       }}
     >
       <RegisterForm />
